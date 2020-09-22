@@ -23,7 +23,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String age = request.getParameter("age");
-        String message = "";
+        String message;
                 
         try {
             int ageInt = Integer.parseInt(age);
@@ -31,7 +31,7 @@ public class AgeCalculatorServlet extends HttpServlet {
             message = String.format("Your are next birthday will be %d", ageInt);
         }
         catch(Exception e) {
-            if (age == null || age == "") {
+            if (age == null || "".equals(age)) {
                 message = "You must give your current age.";
             } else {
                 message = "You must enter a number.";

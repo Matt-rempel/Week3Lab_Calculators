@@ -32,7 +32,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         String minus = request.getParameter("-");
         String mod = request.getParameter("%");
 
-        String message = "";
+        String message;
                 
         try {
             int firstInt = Integer.parseInt(first);
@@ -52,11 +52,7 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             message = String.format("%d", result);
         }
         catch(Exception e) {
-//            if (age == null || age == "") {
-//                message = "You must give your current age.";
-//            } else {
-                message = "invalid";
-//            }
+            message = "invalid";
         }
         
         request.setAttribute("first", first);
